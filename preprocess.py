@@ -3,7 +3,7 @@ import glob
 import pandas as pd
 
 # dataset_list = ['A', 'B1', 'B2', 'C', 'D']
-dataset_list = ['']
+dataset_list = ['A']
 
 colnames = ['RelativeTime', 'PacketsSent', 'PacketsReceived', 'BytesSent', 'BytesReceived']
 
@@ -60,7 +60,7 @@ if len(colnames) != NUM_COLS:
 
 
 for dataset_to_use in dataset_list:
-    datasets_folder = "ReaquestTestSet10"
+    datasets_folder = "RequetDataSet"
     dataset_folder = datasets_folder + '/' + dataset_to_use + '/MERGED_FILES/'
     files = glob.glob(dataset_folder + 'baseline_*_merged.txt')
 
@@ -80,6 +80,6 @@ for dataset_to_use in dataset_list:
         # df = df[df['CollectData'] != 1]  # !why
         # df = df[df['UnlabelledQuality'] != 1]
         print("Concatenating (", i, "/", len(files), "): ", file)
-        df.to_csv('test_data' + dataset_to_use + '/' + file.split('/')[-1].split('.')[0] + '.csv', index=False)
+        df.to_csv('reqdata1/' + dataset_to_use + '/' + file.split('/')[-1].split('.')[0] + '.csv', index=False)
         # df.to_csv('data/' + dataset_to_use + '/' + file.split('.')[0] + '_full.csv', index=None, header=True)
         i = i + 1
